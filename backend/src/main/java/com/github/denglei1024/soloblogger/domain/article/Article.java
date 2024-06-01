@@ -21,6 +21,7 @@ public class Article extends BaseModel {
     @Id
     private String id;
     private String title;
+    private String tag;
     private String content;
     private String author;
 }
