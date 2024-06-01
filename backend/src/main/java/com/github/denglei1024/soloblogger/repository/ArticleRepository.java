@@ -18,6 +18,6 @@ public interface ArticleRepository extends MongoRepository<Article, String> {
     @Query("{ 'tags' : { $regex: ?0, $options: 'i' } }")
     Page<Article> findByTagsContaining(String tag, Pageable pageable);
 
-    @Query("{ $text: { $search: ?0 } }")
+    @Query("{ '$text': { $search: ?0 } }")
     List<Article> searchArticles(String text);
 }
