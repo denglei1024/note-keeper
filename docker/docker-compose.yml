@@ -1,0 +1,21 @@
+version: '3.1'
+
+services:
+
+  mongodb:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: 123.
+    ports:
+      - 27017:27017
+    volumes:
+      - ./mongodata:/data/db
+    networks:
+      - mongo
+volumes:
+  mongodata:
+networks:
+  mongo:
+    driver: bridge
