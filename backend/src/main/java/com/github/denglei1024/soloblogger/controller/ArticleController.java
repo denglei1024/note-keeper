@@ -3,6 +3,9 @@ package com.github.denglei1024.soloblogger.controller;
 import com.github.denglei1024.soloblogger.domain.article.Article;
 import com.github.denglei1024.soloblogger.domain.article.ArticleService;
 import com.github.denglei1024.soloblogger.dto.request.ArticleRequest;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -43,5 +46,14 @@ public class ArticleController {
     public ResponseEntity<Article> getArticle(@PathVariable String id){
         Article article = articleService.getArticle(id);
         return ResponseEntity.ok(article);
+    }
+
+    @GetMapping
+    public ResponseEntity<Page<Article>> getArticles(@RequestParam(defaultValue = "0") int page,
+                                                     @RequestParam(defaultValue = "10") int size,
+                                                     @RequestParam(required = false) String tag){
+        Pageable pageable = PageRequest.of(page, size);
+        Page<Article> articles = articleService.getArticles(page, size, tag, pageable);
+        return ResponseEntity.ok(articles);
     }
 }
