@@ -21,6 +21,7 @@ public class ArticleController {
     @Resource
     private ArticleService articleService;
 
+    @PostMapping
     public ResponseEntity<Article> createArticle(@RequestBody ArticleRequest request){
         Article article = articleService.createArticle(request.getTitle(), request.getContent(), request.getAuthor());
         return new ResponseEntity<>(article, HttpStatus.CREATED);
@@ -29,12 +30,18 @@ public class ArticleController {
     @PutMapping("/{id}")
     public ResponseEntity<Article> updateArticle(@PathVariable String id, @RequestBody ArticleRequest request){
         Article article = articleService.updateArticle(id, request.getTitle(), request.getContent());
-        return new ResponseEntity<>(article, HttpStatus.OK);
+        return ResponseEntity.ok(article);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteArticle(@PathVariable String id){
         articleService.deleteArticle(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Article> getArticle(@PathVariable String id){
+        Article article = articleService.getArticle(id);
+        return ResponseEntity.ok(article);
     }
 }

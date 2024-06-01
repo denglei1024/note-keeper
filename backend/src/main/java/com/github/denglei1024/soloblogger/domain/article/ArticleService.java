@@ -5,7 +5,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 /**
@@ -38,5 +37,9 @@ public class ArticleService {
 
     public void deleteArticle(String id){
         articleRepository.deleteById(id);
+    }
+
+    public Article getArticle(String id){
+        return articleRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("文章不存在"));
     }
 }
