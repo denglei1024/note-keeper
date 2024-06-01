@@ -35,4 +35,8 @@ public class ArticleService {
         article.setContent(content);
         return articleRepository.save(article);
     }
+
+    public void deleteArticle(String id){
+        articleRepository.deleteById(id);
+    }
 }

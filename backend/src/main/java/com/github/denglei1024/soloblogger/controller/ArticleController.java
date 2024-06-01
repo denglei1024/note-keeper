@@ -31,4 +31,10 @@ public class ArticleController {
         Article article = articleService.updateArticle(id, request.getTitle(), request.getContent());
         return new ResponseEntity<>(article, HttpStatus.OK);
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteArticle(@PathVariable String id){
+        articleService.deleteArticle(id);
+        return ResponseEntity.noContent().build();
+    }
 }
