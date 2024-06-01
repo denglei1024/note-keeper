@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * ArticleController
@@ -54,6 +55,12 @@ public class ArticleController {
                                                      @RequestParam(required = false) String tag){
         Pageable pageable = PageRequest.of(page, size);
         Page<Article> articles = articleService.getArticles(page, size, tag, pageable);
+        return ResponseEntity.ok(articles);
+    }
+
+    @GetMapping("/search")
+    public ResponseEntity<List<Article>> searchArticles(@RequestParam(defaultValue = "") String text){
+        List<Article> articles = articleService.searchArticles(text);
         return ResponseEntity.ok(articles);
     }
 }

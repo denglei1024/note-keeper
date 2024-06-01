@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * ArticleService
@@ -51,5 +52,9 @@ public class ArticleService {
             return articleRepository.findAll(pageable);
         }
         return articleRepository.findByTagsContaining(tag, pageable);
+    }
+
+    public List<Article> searchArticles(String text){
+        return articleRepository.searchArticles(text);
     }
 }
