@@ -1,4 +1,4 @@
-package com.github.denglei1024.soloblogger.domain;
+package com.github.denglei1024.soloblogger.domain.user;
 
 import com.github.denglei1024.soloblogger.repository.UserRepository;
 import lombok.extern.slf4j.Slf4j;

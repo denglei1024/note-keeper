@@ -1,7 +1,7 @@
 package com.github.denglei1024.soloblogger.controller;
 
 import com.github.denglei1024.soloblogger.dto.request.AdminSetupRequest;
-import com.github.denglei1024.soloblogger.domain.User;
+import com.github.denglei1024.soloblogger.domain.user.User;
 import com.github.denglei1024.soloblogger.repository.UserRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;

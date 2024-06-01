@@ -1,4 +1,4 @@
-package com.github.denglei1024.soloblogger.domain;
+package com.github.denglei1024.soloblogger.domain.user;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,6 +1,6 @@
 package com.github.denglei1024.soloblogger.configuration;
 
-import com.github.denglei1024.soloblogger.domain.CustomUserDetailsService;
+import com.github.denglei1024.soloblogger.domain.user.CustomUserDetailsService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
