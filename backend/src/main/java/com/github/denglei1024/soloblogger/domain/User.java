@@ -1,4 +1,4 @@
-package com.github.denglei1024.soloblogger.model;
+package com.github.denglei1024.soloblogger.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

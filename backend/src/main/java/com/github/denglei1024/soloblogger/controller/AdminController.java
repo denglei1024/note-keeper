@@ -1,13 +1,12 @@
 package com.github.denglei1024.soloblogger.controller;
 
-import com.github.denglei1024.soloblogger.dto.AdminSetupRequest;
-import com.github.denglei1024.soloblogger.model.User;
+import com.github.denglei1024.soloblogger.dto.request.AdminSetupRequest;
+import com.github.denglei1024.soloblogger.domain.User;
 import com.github.denglei1024.soloblogger.repository.UserRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;

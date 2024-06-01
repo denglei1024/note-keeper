@@ -1,6 +1,6 @@
 package com.github.denglei1024.soloblogger.repository;
 
-import com.github.denglei1024.soloblogger.model.User;
+import com.github.denglei1024.soloblogger.domain.User;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 /**
