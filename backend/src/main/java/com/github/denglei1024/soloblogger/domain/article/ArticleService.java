@@ -28,4 +28,11 @@ public class ArticleService {
         article.setCreatedAt(LocalDateTime.now());
         return articleRepository.save(article);
     }
+
+    public Article updateArticle(String id, String title, String content){
+        Article article = articleRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("文章不存在"));
+        article.setTitle(title);
+        article.setContent(content);
+        return articleRepository.save(article);
+    }
 }

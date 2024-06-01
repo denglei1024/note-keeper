@@ -2,12 +2,10 @@ package com.github.denglei1024.soloblogger.controller;
 
 import com.github.denglei1024.soloblogger.domain.article.Article;
 import com.github.denglei1024.soloblogger.domain.article.ArticleService;
-import com.github.denglei1024.soloblogger.dto.request.CreateArticleRequest;
+import com.github.denglei1024.soloblogger.dto.request.ArticleRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
@@ -23,9 +21,14 @@ public class ArticleController {
     @Resource
     private ArticleService articleService;
 
-    @RequestMapping("/create")
-    public ResponseEntity<Article> createArticle(@RequestBody CreateArticleRequest request){
+    public ResponseEntity<Article> createArticle(@RequestBody ArticleRequest request){
         Article article = articleService.createArticle(request.getTitle(), request.getContent(), request.getAuthor());
         return new ResponseEntity<>(article, HttpStatus.CREATED);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Article> updateArticle(@PathVariable String id, @RequestBody ArticleRequest request){
+        Article article = articleService.updateArticle(id, request.getTitle(), request.getContent());
+        return new ResponseEntity<>(article, HttpStatus.OK);
     }
 }
