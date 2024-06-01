@@ -1,6 +1,6 @@
 package com.github.denglei1024.soloblogger.infrastructure;
 
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.io.Serializable;
 
 /**
  * BaseRequest
@@ -8,6 +8,5 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
  * @author dengl
  * @since 2024-06-01 21:52
  */
-@JsonSerialize
-public abstract class BaseRequest {
+public abstract class BaseRequest implements Serializable {
 }
