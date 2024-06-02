@@ -10,6 +10,11 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * SecurityConfig
@@ -35,17 +40,35 @@ public class SecurityConfig {
     }
 
     @Bean
+    public CorsConfigurationSource corsConfigurationSource() {
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        CorsConfiguration corsConfiguration = new CorsConfiguration();
+        corsConfiguration.applyPermitDefaultValues();
+        corsConfiguration.addAllowedOrigin("http://localhost:3000");
+        corsConfiguration.addAllowedHeader("*");
+        corsConfiguration.addAllowedMethod("*");
+        source.registerCorsConfiguration("/**", corsConfiguration);
+        return source;
+    }
+
+    @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
         http
+            .cors()
+                .configurationSource(corsConfigurationSource())
+                .and()
             .authorizeRequests()
                 .antMatchers("/api/auth/**").permitAll()
-                .anyRequest().authenticated()
+                .antMatchers("/api/admin/**").hasRole("ADMIN")
+                .anyRequest().permitAll()
                 .and()
             .formLogin()
                 .loginProcessingUrl("/api/auth/login")
                 .and()
             .rememberMe()
+                .userDetailsService(userDetailsService())
+                .key("myAppRememberMeKey")
                 .rememberMeParameter("remember-me")
                 .tokenValiditySeconds(24 * 60 * 60)
                 .and()
