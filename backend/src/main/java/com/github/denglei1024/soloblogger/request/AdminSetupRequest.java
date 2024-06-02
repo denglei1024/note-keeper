@@ -1,4 +1,4 @@
-package com.github.denglei1024.soloblogger.dto.request;
+package com.github.denglei1024.soloblogger.request;
 
 import com.github.denglei1024.soloblogger.infrastructure.BaseRequest;
 import lombok.Getter;

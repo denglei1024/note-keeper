@@ -3,12 +3,11 @@ package com.github.denglei1024.soloblogger.controller;
 import com.github.denglei1024.soloblogger.domain.article.Comment;
 import com.github.denglei1024.soloblogger.domain.article.CommentService;
 import com.github.denglei1024.soloblogger.domain.user.CustomUserDetails;
-import com.github.denglei1024.soloblogger.dto.request.CommentRequest;
+import com.github.denglei1024.soloblogger.request.CommentRequest;
 import lombok.SneakyThrows;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;

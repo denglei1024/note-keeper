@@ -1,17 +1,16 @@
-package com.github.denglei1024.soloblogger.dto.request;
+package com.github.denglei1024.soloblogger.request;
 
 import com.github.denglei1024.soloblogger.infrastructure.BaseRequest;
 import lombok.Getter;
 
 /**
- * ArticleRequest
+ * CommentRequest
  *
  * @author denglei
- * @since 2024-06-01 23:07
+ * @since 2024-06-02 11:05
  */
 @Getter
-public class ArticleRequest extends BaseRequest {
-    private String title;
+public class CommentRequest extends BaseRequest {
     private String content;
     private String author;
 }

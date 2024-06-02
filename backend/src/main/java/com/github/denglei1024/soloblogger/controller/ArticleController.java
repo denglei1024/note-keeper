@@ -2,7 +2,7 @@ package com.github.denglei1024.soloblogger.controller;
 
 import com.github.denglei1024.soloblogger.domain.article.Article;
 import com.github.denglei1024.soloblogger.domain.article.ArticleService;
-import com.github.denglei1024.soloblogger.dto.request.ArticleRequest;
+import com.github.denglei1024.soloblogger.request.ArticleRequest;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;

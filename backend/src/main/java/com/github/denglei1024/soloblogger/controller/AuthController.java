@@ -1,8 +1,8 @@
 package com.github.denglei1024.soloblogger.controller;
 
 import com.github.denglei1024.soloblogger.domain.user.User;
-import com.github.denglei1024.soloblogger.dto.request.ChangePasswordRequest;
-import com.github.denglei1024.soloblogger.dto.request.LoginRequest;
+import com.github.denglei1024.soloblogger.request.ChangePasswordRequest;
+import com.github.denglei1024.soloblogger.request.LoginRequest;
 import com.github.denglei1024.soloblogger.repository.UserRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
