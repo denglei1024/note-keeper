@@ -3,4 +3,5 @@ server:
 spring:
   data:
     mongodb:
-      uri: mongodb://root:123.@127.0.0.1:27017/solo-blogger
+      uri: mongodb://root:123@127.0.0.1:27017
+      database: solo-blogger

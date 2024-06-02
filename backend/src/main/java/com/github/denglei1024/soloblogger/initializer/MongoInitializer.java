@@ -3,6 +3,7 @@ package com.github.denglei1024.soloblogger.initializer;
 import com.github.denglei1024.soloblogger.domain.article.Article;
 import com.github.denglei1024.soloblogger.domain.user.User;
 import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.data.mongodb.core.MongoTemplate;
