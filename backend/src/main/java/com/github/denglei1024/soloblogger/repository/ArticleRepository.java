@@ -5,6 +5,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -14,6 +15,7 @@ import java.util.List;
  * @author denglei
  * @since 2024-06-01 23:03
  */
+@Repository
 public interface ArticleRepository extends MongoRepository<Article, String> {
     @Query("{ 'tags' : { $regex: ?0, $options: 'i' } }")
     Page<Article> findByTagsContaining(String tag, Pageable pageable);
